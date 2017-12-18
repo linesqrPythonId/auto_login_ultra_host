@@ -85,7 +85,10 @@ def auto_request_ultra(user, sandi, platform_code):
 			browser.find_element_by_id("login").click()
 			time.sleep(40)
 			kotak = os.path.dirname(os.path.abspath( __file__ ))
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			print("[DEBUG] Ambil Screenshot")			
 	#browser.get('https://www.ultra-h.com/home.php')
 		try:
@@ -100,7 +103,10 @@ def auto_request_ultra(user, sandi, platform_code):
 			NEXT_BUTTON_XPATH = "/html/body/div[3]/div[3]/center/div[5]/table/tbody/tr[2]/td[8]/form[1]/input[2]"
     	# we have to wait for the page to refresh, the last thing that seems to be updated is the title
 			WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.XPATH, NEXT_BUTTON_XPATH)))
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			if EC.presence_of_element_located((By.XPATH, NEXT_BUTTON_XPATH)):
 				print("[DEBUG] Anda sudah memiliki sebuah server")
 				has_server = 1
@@ -117,9 +123,15 @@ def auto_request_ultra(user, sandi, platform_code):
 			time.sleep(10)
 			kotak = os.path.dirname(os.path.abspath( __file__ ))
 			print("[DEBUG] Buka web Request Ultra Host")
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			browser.get('http://www.ultra-h.com/request.php')
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			#time.sleep(10)
 			elemen = browser.find_element_by_id("s_host")
 			print("ok elemen")
@@ -132,7 +144,10 @@ def auto_request_ultra(user, sandi, platform_code):
 			porting = str(input("Masukkan Portnya (cukup portnya saja): "))
 			#select = Select(browser.find_element_by_id("s_host"))
 			#select.select_by_visible_text(porting)
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			for option in opsi:
 				if "(Taken)" not in option.get_attribute("innerHTML"):
 					if porting in option.get_attribute("innerHTML"):
@@ -141,7 +156,10 @@ def auto_request_ultra(user, sandi, platform_code):
 						break
 						#print("Port yang ada: %s" % option.get_attribute("value"))
 						#print("Status yang ada: %s" % option.get_attribute("innerHTML"))
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			browser.find_element_by_name("Rules_3").click()
 			browser.find_element_by_name("Rules_4").click()
 			browser.find_element_by_name("Rules_0").click()
@@ -150,7 +168,10 @@ def auto_request_ultra(user, sandi, platform_code):
 			browser.find_element_by_name("Rules_1").click()
 			#for xpath request server "/html/body/div[3]/div[3]/center/form/input"
 			browser.find_element_by_xpath("/html/body/div[3]/div[3]/center/form/input").click()
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			print("[DEBUG] Screenshot Updated")
 		finally:
 			kotak = os.path.dirname(os.path.abspath( __file__ ))
@@ -165,8 +186,14 @@ def auto_request_ultra(user, sandi, platform_code):
 				#print(linker) #just for debug
 			#WebDriverWait(browser, 30).until(browser.current_url == 'https://ultra-h.com/panel.php')
 			print('[DEBUG] Link Terakhir Sebelum Request Selesai '+'"'+browser.execute_script("return document.location.href;")+'"')
-			print('[DEBUG] Mengambil Screenshot dan disimpan di: '+ '"'+kotak+'\meow.png"')
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				print('[DEBUG] Mengambil Screenshot dan disimpan di: '+ '"'+kotak+'/meow.png"')
+			else:
+				print('[DEBUG] Mengambil Screenshot dan disimpan di: '+ '"'+kotak+'\meow.png"')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			print ("[DEBUG] Request Selesai Menutup Webdriver")
 			#print(browser.current_url) #currently not used
 			sys.exit(1)
@@ -226,7 +253,10 @@ def auto_login_ultra(user, sandi, platform_code):
 			temp_file = browser.current_url
 			time.sleep(40)
 			kotak = os.path.dirname(os.path.abspath( __file__ ))
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			print("[DEBUG] Ambil Screenshot")			
 	#browser.get('https://www.ultra-h.com/home.php')
 		try:
@@ -274,7 +304,10 @@ def auto_login_ultra(user, sandi, platform_code):
 			#WebDriverWait(browser, 30).until(browser.current_url == 'https://ultra-h.com/panel.php')
 			print('[DEBUG] Link Terakhir Sebelum Login Sukses '+'"'+browser.execute_script("return document.location.href;")+'"')
 			print('[DEBUG] Mengambil Screenshot dan disimpan di: '+ '"'+kotak+'\meow.png"')
-			browser.save_screenshot(kotak+'\meow.png')
+			if platform_os == "linux":
+				browser.save_screenshot(kotak+'/meow.png')
+			else:
+				browser.save_screenshot(kotak+'\meow.png')
 			print ("[DEBUG] Login Sukses Menutup Webdriver")
 			#print(browser.current_url) #currently not used
 			if sinkronus == 1:
@@ -293,10 +326,9 @@ def syncronus(usr,psd,os):
 	auto_login_ultra(usr,psd,os)
 	yourdate = date.today()
 	while True:
-		print("[DEBUG] Pengecek Aktivitas Loli Legal Paksa")
 		if yourdate < date.today():
 			print("[DEBUG] Tanggal Sudah Berubah Melakukan Uji Prosedur")
-			auto_login_ultra("senpai9","senpai9")
+			auto_login_ultra(usr,psd,os)
 			print("[DEBUG] Setting Variabel Tanggal Jadi Sama Mencegah Bug")
 			yourdate = date.today()
 
